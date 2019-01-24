@@ -2,6 +2,8 @@ import Form from './core/Form';
 import Vue from 'vue';
 import axios from 'axios';
 
+import Example from './components/Example';
+
 window.axios=axios;
 window.Form=Form;
 
@@ -9,6 +11,11 @@ window.Form=Form;
 new Vue({
 
     el:"#app",
+
+    components:{
+      Example
+
+    },
 
     data:{
 

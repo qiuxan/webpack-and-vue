@@ -11,7 +11,10 @@
 <div id="app" class="container">
     @include ('projects.list')
 
+    <example></example>
     <form method="POST" action="/projects" @submit.prevent="onSubmit"  @keydown="form.errors.clear($event.target.name)">
+
+
         @csrf
         <div class="control">
             <label for="name" class="label">Project Name:</label>
