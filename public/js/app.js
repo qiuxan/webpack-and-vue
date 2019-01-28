@@ -48881,11 +48881,24 @@ Vue.component('example-component', __webpack_require__(/*! ./components/ExampleC
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+var share = {
+  user: {
+    name: "share name"
+  }
+};
 var app = new Vue({
   el: '#app',
   components: {
     Notification: _components_Notification_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
   }
+});
+new Vue({
+  el: '#one',
+  data: share
+});
+new Vue({
+  el: '#two',
+  data: share
 });
 
 /***/ }),

@@ -25,6 +25,14 @@
 
                 </div>
 
+                <div id="one">
+                    @{{ user.name }}
+                </div>
+
+                <div id="two">
+                    @{{ user.name }}
+                </div>
+
 
             </div>
         </div>

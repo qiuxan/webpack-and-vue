@@ -30,7 +30,27 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+let share={
+
+    user: {
+
+        name: "share name"
+    }
+
+
+}
+
+
 const app = new Vue({
     el: '#app',
     components:{ Notification}
+});
+new Vue({
+    el: '#one',
+    data:share
+});
+
+new Vue({
+    el: '#two',
+    data:share
 });
