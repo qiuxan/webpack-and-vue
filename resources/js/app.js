@@ -9,7 +9,7 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 
-import Notification from './components/Notification.vue'
+//import Notification from './components/Notification.vue'
 
 /**
  * The following block of code may be used to automatically register your
@@ -22,35 +22,50 @@ import Notification from './components/Notification.vue'
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+//Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
+Vue.component('coupon', {
+    props: ['code'],
 
-let share={
+    data(){
 
-    user: {
+        return {
+            invalids:['free','else']
+        };
+    },
 
-        name: "share name"
+    template: `
+        <input type="text"
+               :value="code"
+               @input="updateCode($event.target.value)"
+               ref="input">
+    `,
+
+    methods: {
+        updateCode(code) {
+            // Atttach validation + sanitization here.
+            if (this.invalids.includes(code)){
+
+                alert('code expire');
+
+                this.$refs.input.value=code='';
+            }
+
+            this.$emit('input', code);
+        }
     }
+});
 
 
-}
-
-
-const app = new Vue({
+new Vue({
     el: '#app',
-    components:{ Notification}
-});
-new Vue({
-    el: '#one',
-    data:share
-});
 
-new Vue({
-    el: '#two',
-    data:share
+    data: {
+        coupon: 'FREEBIE' // Maybe from DB or querystring.
+    }
 });

@@ -12,7 +12,6 @@
     </head>
     <body>
 
-    <notification></notification>
 
     <div class="flex-center position-ref full-height">
 
@@ -21,17 +20,11 @@
 
 
                 <div id="app">
-                    <notification></notification>
+                    {{--<input type="text" v-model="coupon">--}}
 
+                    <coupon v-model="coupon"></coupon>
                 </div>
 
-                <div id="one">
-                    @{{ user.name }}
-                </div>
-
-                <div id="two">
-                    @{{ user.name }}
-                </div>
 
 
             </div>
